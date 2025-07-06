@@ -39,6 +39,7 @@ HEX_DATA=(
 # > "$REPORT_DESC_PATH"
 
 # 一時バイナリファイル作成
+mkdir -p "$(dirname "$TMP_REPORT")"
 > "$TMP_REPORT"
 
 # 配列の各行を処理

@@ -7,33 +7,36 @@ TMP_REPORT="/tmp/game_pad/report_tmp.bin"
 
 # コメント付きで分割した16進バイト列（バイトのみ行とコメント行を分ける）
 HEX_DATA=(
-  "05 01"        # Usage Page (Generic Desktop)
-  "09 05"        # Usage (Game Pad)
-  "A1 01"        # Collection (Application)
+  "05 01"       # Usage Page (Generic Desktop)
+  "09 05"       # Usage (Game Pad)
+  "A1 01"       # Collection (Application)
+    "A1 00"        #   Collection (Physical)
+      "05 09"       #   Usage Page (Button)
+      "19 01"       #   Usage Minimum (Button 1)
+      "29 0A"       #   Usage Maximum (Button 10)
+      "15 00"       #   Logical Minimum (0)
+      "25 01"       #   Logical Maximum (1)
+      "95 0A"       #   Report Count (10)
+      "75 01"       #   Report Size (1)
+      "81 02"       #   Input (Data, Variable, Absolute)
 
-  "A1 00"        #   Collection (Physical)
+      "95 06"       #   Report Count (6)  ← パディング分
+      "75 01"       #   Report Size (1)
+      "81 03"       #   Input (Constant, Variable, Absolute) - Padding
 
-  "05 09"        #     Usage Page (Button)
-  "19 01"        #     Usage Minimum (Button 1)
-  "29 10"        #     Usage Maximum (Button 16)
-  "15 00"        #     Logical Minimum (0)
-  "25 01"        #     Logical Maximum (1)
-  "95 10"        #     Report Count (16)
-  "75 01"        #     Report Size (1)
-  "81 02"        #     Input (Data, Variable, Absolute)
-
-  "05 01"        #     Usage Page (Generic Desktop)
-  "09 30"        #     Usage (X)
-  "09 31"        #     Usage (Y)
-  "15 81"        #     Logical Minimum (-127)
-  "25 7F"        #     Logical Maximum (127)
-  "75 08"        #     Report Size (8)
-  "95 02"        #     Report Count (2)
-  "81 02"        #     Input (Data, Variable, Absolute)
-
-  "C0"           #   End Collection (Physical)
+      "05 01"       #   Usage Page (Generic Desktop)
+      "09 30"       #   Usage (X)
+      "09 31"       #   Usage (Y)
+      "09 32"       #   Usage (Z)
+      "09 35"       #   Usage (Rz)
+      "15 00"       #   Logical Minimum (0)
+      "26 FF 00"    #   Logical Maximum (255)
+      "75 08"       #   Report Size (8)
+      "95 04"       #   Report Count (4)
+      "81 02"       #   Input (Data, Variable, Absolute)
+    "C0"           #   End Collection (Physical)
   "C0"           # End Collection (Application)
-)
+  )
 
 # 出力ファイルを空に初期化
 # > "$REPORT_DESC_PATH"

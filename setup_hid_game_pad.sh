@@ -42,9 +42,9 @@ echo 250 > configs/c.1/MaxPower
 mkdir -p functions/hid.usb0
 echo 1 > functions/hid.usb0/protocol
 echo 1 > functions/hid.usb0/subclass
-echo 4 > functions/hid.usb0/report_length
+echo 8 > functions/hid.usb0/report_length
 
-# HID Report Descriptor 書き込み（4バイト構成）
+# HID Report Descriptor 書き込み（8バイト構成）
 /usr/local/bin/report_descriptor.sh
 
 # Keyboard function

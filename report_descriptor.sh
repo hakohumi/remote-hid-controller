@@ -39,7 +39,7 @@ HEX_DATA=(
   )
 
 # 出力ファイルを空に初期化
-# > "$REPORT_DESC_PATH"
+> "$REPORT_DESC_PATH"
 
 # 一時バイナリファイル作成
 mkdir -p "$(dirname "$TMP_REPORT")"
@@ -60,7 +60,7 @@ hexdump -C "$TMP_REPORT"
 
 
 # 書き込み
-# cat "$TMP_REPORT" > "$REPORT_DESC_PATH"
+cat "$TMP_REPORT" > "$REPORT_DESC_PATH"
 rm "$TMP_REPORT"
 
 echo "✅ HID report descriptor written to $REPORT_DESC_PATH"

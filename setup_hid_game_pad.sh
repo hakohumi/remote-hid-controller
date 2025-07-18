@@ -2,7 +2,6 @@
 
 # 参考
 # https://qiita.com/exthnet/items/98aa9b6d6a606f8f2cf8
-# https://qiita.com/exthnet/items/98aa9b6d6a606f8f2cf8
 # ChatGPT
 # https://qiita.com/sukimaengineer/items/7e49d60ab23962c97428
 
@@ -13,10 +12,14 @@ UDC=$(ls /sys/class/udc | head -n 1)
 # 既存のガジェットがあれば削除
 if [ -d "$GADGET_PATH" ]; then
   echo "⚠️ 既存ガジェットを削除します"
-  echo "" > "$GADGET_PATH/UDC" || true
-  rm -rf "$GADGET_PATH"
+  echo "" | sudo tee "$GADGET_PATH/UDC" > /dev/null || true
+  rm $GADGET_PATH/configs/c.1/hid.usb0
+  rmdir $GADGET_PATH/configs/c.1/strings/0x409/
+  rmdir $GADGET_PATH/configs/c.1
+  rmdir $GADGET_PATH/functions/hid.usb0
+  rmdir $GADGET_PATH/strings/0x409
+  rmdir $GADGET_PATH
 fi
-
 # Gadget作成
 mkdir -p "$GADGET_PATH"
 cd "$GADGET_PATH"

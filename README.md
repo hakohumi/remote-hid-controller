@@ -46,11 +46,12 @@
 ### やったこと
 
 - Raspberry Pi Zero 2 Wのセットアップ
-  - Raspberry Pi OS Liteのインストール
+  - Raspberry Pi OS Liteの書き込み
   - OTG USB 2.0コントローラの有効化
-    - config.txtに dtoverlay=dwc2 を追加する。
+    - config.txtの一番下に dtoverlay=dwc2 を追加する。
   - カーネルモジュールのロード
-    - cmdline.txtにmodules-load=dwc2,libcompositeを追加する。
+    - cmdline.txtの rootwaitの右に modules-load=dwc2,libcompositeを追加する。
+  - xxdのインストール
 - USB Gadgetの設定
   - /sys/kernel/config/<任意の名前>/に色々作っていく。
     - レポートディスクリプタ
@@ -63,6 +64,8 @@
 
 USB 公式
 <https://www.usb.org/hid>
+
+<https://www.mzyy94.com/blog/2020/03/20/nintendo-switch-pro-controller-usb-gadget/>
 
 <https://ifritjp.github.io/documents/singleboard/usb-gadget/>
 <https://masawada.hatenablog.jp/entry/2021/02/10/100000>

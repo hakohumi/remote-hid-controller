@@ -60,6 +60,11 @@
 - Raspberry Pi Zero 2 W側からHIDに対して操作を行うスクリプトの作成
   - 生成された/dev/hidg0などに対して書き込む
 
+## nscon
+
+- add_procon_gadget.shを起動
+- nscon/demo/でnext.goを起動(sudo go run next.go)
+
 ## 参考サイト
 
 USB 公式
@@ -71,3 +76,10 @@ USB 公式
 <https://masawada.hatenablog.jp/entry/2021/02/10/100000>
 <https://ifritjp.github.io/documents/singleboard/usb-gadget/>
 <https://isecj.jp/blog/raspberry-pi-usb-hid-1/>
+
+nscon
+HIDの設定の有効化からデータ送信まで
+<https://mtosak-tech.hatenablog.jp/entry/2020/08/22/114622#bootconfigtxt>
+
+webアプリからコントロールできる
+<https://github.com/Brikwerk/nxbt>

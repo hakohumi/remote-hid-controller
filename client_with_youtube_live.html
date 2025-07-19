@@ -17,6 +17,23 @@
       margin-bottom: 30px;
     }
 
+    /* YouTube iframeレスポンシブ用 */
+.video-wrapper {
+  position: relative;
+  width: 800px;      /* 固定幅 */
+  height: 450px;     /* 固定高さ */
+  margin-bottom: 40px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 800px;     /* 親に合わせて固定 */
+  height: 450px;
+  border: none;
+}
+
     .controller {
       display: grid;
       grid-template-areas:
@@ -58,9 +75,18 @@
   </style>
 </head>
 <body>
-  <h1>Switch Controller</h1>
+  <h1>Switch Controller with YouTube Live</h1>
+  <!-- YouTubeライブ埋め込み -->
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/3-RKqy-XS2w?autoplay=0&mute=1"
+      title="YouTube Live Stream"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
 
-  <!-- 十字キー -->
+  <!-- Switch Controller -->
   <div class="controller">
     <button class="up" onclick="sendCommand('w')">↑</button>
     <button class="left" onclick="sendCommand('a')">←</button>
@@ -69,7 +95,6 @@
     <button class="down" onclick="sendCommand('s')">↓</button>
   </div>
 
-  <!-- ABXYボタン -->
   <div class="btn-grid">
     <button onclick="sendCommand('x')">X</button>
     <button onclick="sendCommand('y')">Y</button>
@@ -77,7 +102,6 @@
     <button onclick="sendCommand('enter')">A</button>
   </div>
 
-  <!-- L/R/ZL/ZR -->
   <div class="btn-grid">
     <button onclick="sendCommand('q')">L</button>
     <button onclick="sendCommand('r')">R</button>
@@ -85,7 +109,6 @@
     <button onclick="sendCommand('zr')">ZR</button>
   </div>
 
-  <!-- その他 -->
   <div class="btn-grid">
     <button onclick="sendCommand('plus')">＋</button>
     <button onclick="sendCommand('minus')">−</button>
